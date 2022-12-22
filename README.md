@@ -10,7 +10,7 @@
     中维动力视觉知识库
     <br/>
     <br/>
-    <a href="https://github.com/typical-motion/visionKB"><strong>立即访问 »</strong></a>
+    <a href="https://vision-kb-typical-motion.vercel.app/"><strong>立即访问 »</strong></a>
     <br/>
     <br/>
   </p>
