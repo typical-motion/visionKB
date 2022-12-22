@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Vision Knowledge Base',
   tagline: '中维动力视觉知识库',
-  url: 'https://fjut-vision-blog.vercel.app/',
+  url: 'https://vision-kb-typical-motion.vercel.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -17,7 +17,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'typical-motion', // Usually your GitHub org/user name.
-  projectName: 'fjut-vision-blog', // Usually your repo name.
+  projectName: 'visionKB', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -37,14 +37,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/typical-motion/fjut-vision-blog/tree/master/',
+            'https://github.com/typical-motion/visionKB/tree/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/typical-motion/fjut-vision-blog/tree/master/',
+            'https://github.com/typical-motion/visionKB/tree/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

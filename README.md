@@ -1,37 +1,26 @@
-# Vision Knowledge Base - 中维动力视觉知识库
+<br/>
+<p align="center">
+  <a href="https://github.com/typical-motion/visionKB">
+    <img src="static/img/logo.svg" alt="Logo" width="80" height="80">
+  </a>
 
-基于 [Docusaurus 2](https://docusaurus.io/) 搭建的知识库  
+  <h3 align="center">Vision Knowledge Base</h3>
 
-在线访问地址：https://fjut-vision-blog.vercel.app/
+  <p align="center">
+    中维动力视觉知识库
+    <br/>
+    <br/>
+    <a href="https://github.com/typical-motion/visionKB"><strong>立即访问 »</strong></a>
+    <br/>
+    <br/>
+  </p>
+</p>
+
+![Contributors](https://img.shields.io/github/contributors/typical-motion/visionKB?color=dark-green) ![Forks](https://img.shields.io/github/forks/typical-motion/visionKB?style=social) ![License](https://img.shields.io/github/license/typical-motion/visionKB) 
 
 
-# 使用介绍
+本项目基于 [Docusaurus 2](https://docusaurus.io/) 搭建
 
-## 如何上传本地文件至 Vision Knowledge Base
-#### 1.使用git将项目克隆到本地
-> 首先更新 fork，然后再进行拉取
-```
-git clone https://github.com/typical-motion/fjut-vision-blog.git
-```
+# 参与编写
 
-#### 2.在``docs``目录下编写``.md``文件
-
-**Tips:** 如果需要图片，则需要将图片添加到``static``目录下  
-在``.md``文件下使用相对路径
-
-#### 3.在本地验证是否有bug  
-```yarn build```  
-（对大小写敏感、本地能过服务器build不一定能过）
-
-#### 4.上传代码至GitHub  
-
-```
-git add . 
-git commit -m "简介"  
-git push
-```
-如果提交了错误的可以从`base`进行更新，为了预防出现意外可以新建`branch`然后`pull`确认没有问题之后进行`merge`
-
-#### 5.pull to base 
-
-确认没有问题之后记得 `pull requests`
+请移步至这里：[文章编写指南](https://vision-kb-typical-motion.vercel.app/docs/%E5%9F%BA%E7%A1%80/%E6%96%87%E7%AB%A0%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97)
