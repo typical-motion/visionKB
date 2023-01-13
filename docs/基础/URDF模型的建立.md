@@ -12,7 +12,7 @@
 
    首先下载[URDF导出插件](../../static/img/URDF模型的建立/plugs/sw2urdfSetup.exe)，下载完成后打开后程序后直接点击 install 即可。
   
-  如果不是使用 21 及以上 SolidWorks版本 也可以在[这里](https://github.com/ros/solidworks_urdf_exporter/releases)的官方地址上下载对应版本的插件。
+  如果不是使用 21 及以上 SolidWorks 版本 也可以在[这里](https://github.com/ros/solidworks_urdf_exporter/releases)的官方地址上下载对应版本的插件。
 
   2. 插件的设置
   
