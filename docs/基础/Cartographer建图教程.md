@@ -385,3 +385,65 @@ roslaunch cartographer_ros my_robot_laser_imu.launch
 
 最终运行效果如下：
 ![result of laser and imu](../../static/img/cartographer%E5%BB%BA%E5%9B%BE%E6%95%99%E7%A8%8B/imu_laser.png)
+
+### 保存已建好的地图 
+
+使用 Cartographer 建图后是不会保存地图的，如果要将构建完成的地图用于之后的定位是需要将地图保存下来的。
+
+**1. 停止建图**
+
+当建图完成后，输入以下命令停止地图构建：
+
+```bash
+# 停止地图构建
+rosservice call /finish_trajectory 0
+```
+
+**2. 保存地图**
+
+输入以下命令保存已构建完成的地图：
+
+```bash
+# 保存地图
+rosservice call /write_state "{filename: '<绝对路径>/‘<地图名字>’.pbstream'}"
+```
+
+**3. 将 Cartographer 保存的地图转换为 ROS 格式下的栅格地图**
+
+```bash
+rosrun cartographer_ros cartographer_pbstream_to_ros_map -pbstream_filename=<绝对路径>/<地图名字>.pbstream -map_filestem=<绝对路径>/<地图名字>
+```
+
+为了更加方便地保存地图，我们还可将这些命令做成一个脚本文件 `CartographerSaveMap.sh`。
+
+脚本文件 `CartographerSaveMap.sh` 的代码如下：
+
+```bash
+#!/bin/bash
+# enter the workspace
+source install_isolated/setup.bash
+
+# map  folder 
+map_dir="${HOME}/catkin_ws/map"      
+ # map name defined as current datatime   
+map_name=$(date +%Y%m%d_%H-%M-%S)  
+
+# check the file folder exist
+if [ ! -d "$map_dir" ];then
+  echo "文件夹不存在, 即将创建文件夹"
+  mkdir -p $map_dir
+fi
+
+# finish slam
+rosservice call /finish_trajectory 0
+
+# make pbstream
+rosservice call /write_state "{filename: '$map_dir/$map_name.pbstream'}"
+
+# pbstream to map
+rosrun cartographer_ros cartographer_pbstream_to_ros_map \
+-pbstream_filename=$map_dir/$map_name.pbstream \
+-map_filestem=$map_dir/$map_name
+```
+
+运行脚本文件即可保存地图。
