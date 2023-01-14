@@ -62,11 +62,11 @@ cp install_isolated/share/cartographer_ros/launch/assets_writer_backpack_3d.laun
 
 ## 运行自己的 Cartographer ROS 
 
-### ***温馨提示：请大家在接下来的操作中做好备份，以防文件丢失。*** ###
+***温馨提示：请大家在接下来的操作中做好备份，以防文件丢失。*** 
 
-### ***默认大家的 Cartographer 的工作空间为 catkin_ws*** ###
+***默认大家的 Cartographer 的工作空间为 catkin_ws*** 
 
-### ***默认大家所使用的雷达为 lsn10，雷达的功能包为 lsn10*** ###
+***默认大家所使用的雷达为 lsn10，雷达的功能包为 lsn10*** 
 
 ### 2D 建图 + 激光雷达
 
