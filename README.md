@@ -24,7 +24,7 @@
 
 # 参与编写
 
-请移步至这里：[文章编写指南](https://vision-kb-typical-motion.vercel.app/docs/%E5%9F%BA%E7%A1%80/%E6%96%87%E7%AB%A0%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97)
+请移步至这里：[文章编写指南](https://visionkb.app.lss233.com/docs/%E7%9F%A5%E8%AF%86%E5%BA%93/%E6%96%87%E7%AB%A0%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97)
 
 # 贡献者名单  
 
