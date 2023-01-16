@@ -10,8 +10,9 @@
     中维动力视觉知识库
     <br/>
     <br/>
-    <a href="https://vision-kb-typical-motion.vercel.app/"><strong>立即访问 »</strong></a>
+    <a href="https://visionkb.app.lss233.com"><strong>立即访问 »</strong></a>
     <br/>
+    <a href="https://vision-kb-typical-motion.vercel.app/">（备用入口）</a>
     <br/>
   </p>
 </p>
