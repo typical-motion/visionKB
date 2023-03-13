@@ -27,11 +27,11 @@ source ~/.bashrc
 
 注释如图所示
 
-![1](static/img/DarkNet训练过程/1.jpg)
+![1](../../static/img/DarkNet训练过程/1.jpg)
 
 注释完成后启动终端 `（base）root@` 消失
 
-![2](static/img/DarkNet训练过程/2.jpg)
+![2](../../static/img/DarkNet训练过程/2.jpg)
 
 ## 训练过程
 
@@ -39,7 +39,7 @@ source ~/.bashrc
 
 格式如图所示
 
-![1](static/img/DarkNet训练过程/3.jpg)
+![1](../../static/img/DarkNet训练过程/3.jpg)
 
 [VOC数据集简介](https://blog.csdn.net/qq_21386397/article/details/123656072)
 
