@@ -105,9 +105,12 @@ cd catkin_ws
 cp install_isolated/share/cartographer_ros/configuration_files/revo_lds.lua install_isolated/share/cartographer_ros/configuration_files/my_robot_laser_only.lua
 ```
 
-将下列参数 `tracking_frame` , `published_frame` 修改成雷达的**frame_id**，即 `laser`。
+将参数 `tracking_frame` 修改成雷达的**frame_id**，即 `laser`。
 
-将参数 `provide_odom_frame` 设置为 **false**。
+将参数 `published_frame` 修改成底盘的**frame_id**，即 `base_link`。
+
+将参数 `provide_odom_frame` 设置为 **false**。  
+没有用到里程计，所以将其设置成 false。
 
 **<span id="lable"></span>**
 
@@ -116,14 +119,14 @@ cp install_isolated/share/cartographer_ros/configuration_files/revo_lds.lua inst
 
 `published_frame:` 要用作发布坐标的子帧的 ROS 帧 ID。  
 如果 `odom` 框架由系统的不同部分提供，则设置为 `odom`。  
-在这种情况下将发布 map_frame 中 `odom` 的坐标。否则，将其设置为 `base_link` 可能是合适的。
+在这种情况下将发布 map_frame 中 `odom` 的坐标。否则，将其设置为 `base_link` 可能是合适的。   
 
 
 具体代码如下：
 
 ```bash
 tracking_frame = "laser"
-published_frame = "laser"
+published_frame = "base_link"
 
 provide_odom_frame = false
 ```
@@ -175,9 +178,10 @@ cp install_isolated/share/cartographer_ros/launch/demo_revo_lds.launch install_i
 
   <node pkg="tf2_ros" type="static_transform_publisher" name="laser_broadcaster" 
       args="0 0 0 0 0 0 map laser" />
-      
+
+  <!-- 请修改成自己的 rviz 路径 -->      
   <node name="rviz" pkg="rviz" type="rviz" required="true"
-      <!-- args="/home/zr/.ros/laser.rviz" /> -->
+      args="/home/zr/.ros/laser.rviz" />
 </launch>
 ```
 
@@ -213,8 +217,9 @@ cp install_isolated/share/cartographer_ros/launch/demo_revo_lds.launch install_i
   <node pkg="tf2_ros" type="static_transform_publisher" name="laser_broadcaster" 
       args="0 0 0 0 0 0 map laser" />
       
+  <!-- 请修改成自己的 rviz 路径 -->      
   <node name="rviz" pkg="rviz" type="rviz" required="true"
-      <!-- args="/home/zr/.ros/laser.rviz" /> -->
+      args="/home/zr/.ros/laser.rviz" />
 </launch>
 ```
 
@@ -263,9 +268,10 @@ cp install_isolated/share/cartographer_ros/configuration_files/revo_lds.lua inst
 
 将参数 `publisher_frame` 修改成底盘的 **frame_id**。我这里使用的底盘的 frame_id 为 `base_link`。
 
-这两个参数具体解释请看<a href="#lable">**这里**</a>。
+这两个参数具体解释可以看<a href="#lable">**这里**</a>。
 
-将参数 `provide_odom_frame` 设置为 **false**。
+将参数 `provide_odom_frame` 设置为 **false**。  
+没有用到里程计，所以将其设置成 false。
 
 具体代码如下：
 
@@ -352,6 +358,8 @@ cd catkin_ws
 cp install_isolated/share/cartographer_ros/launch/demo_revo_lds.launch install_isolated/share/cartographer_ros/launch/my_robot_laser_imu.launch
 ```
 
+添加 `robot_state_publisher` 节点，即添加机器人模型。
+
 修改 `cartographer_node` 节点，映射雷达的 **topic**，即 `/scan`；映射陀螺仪的 **topic**，即 `/IMU_data`。
 
 将 `rviz` 节点切换至你所用的 .rviz 文件。
@@ -364,10 +372,16 @@ cp install_isolated/share/cartographer_ros/launch/demo_revo_lds.launch install_i
 <launch>
   <param name="/use_sim_time" value="true" />
 
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/my_robot_laser_imu.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename my_robot_only_laser.lua"
+          -configuration_basename my_robot_laser_imu.lua"
       output="screen">
     <remap from="scan" to="/scan" />
     <remap from="imu" to="/IMU_data">
@@ -376,8 +390,9 @@ cp install_isolated/share/cartographer_ros/launch/demo_revo_lds.launch install_i
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
       type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
       
+  <!-- 请修改成自己的 rviz 路径 -->      
   <node name="rviz" pkg="rviz" type="rviz" required="true"
-      <!-- args="/home/zr/.ros/laser.rviz" /> -->
+      args="/home/zr/.ros/laser_imu.rviz" />
 </launch>
 ```
 
