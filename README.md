@@ -7,7 +7,7 @@
   <h3 align="center">Vision Knowledge Base</h3>
 
   <p align="center">
-    中维动力视觉知识库
+    苍侠视觉知识库
     <br/>
     <br/>
     <a href="https://visionkb.app.lss233.com"><strong>立即访问 »</strong></a>
