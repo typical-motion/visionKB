@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Vision Knowledge Base',
-  tagline: '中维动力视觉知识库',
+  tagline: '苍侠视觉知识库',
   url: 'https://vision-kb-typical-motion.vercel.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -106,7 +106,7 @@ const config = {
             title: '友情链接',
             items: [
               {
-                label: '福建工程学院',
+                label: '福建理工大学',
                 to: 'https://www.fjut.edu.cn/',
               },
               {
