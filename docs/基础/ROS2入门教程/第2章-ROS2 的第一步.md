@@ -32,7 +32,8 @@ action_tutorials_cpp
 
 &emsp;&emsp;在这种情况下，`pkg` 负责管理 ROS2 软件包。`list` 操作可获取底层或任何覆盖层中的软件包列表。  
 
-<details> <summary><b>深入探讨：roscli</b></summary>
+<details>
+<summary><b>深入探讨：roscli</b></summary>
 
 `ros2cli` 是 ROS2 命令行界面工具。它是模块化和可扩展的，因此可以通过添加新的操作来增加更多功能。目前的标准操作有：  
 `action` 　　 `extension_points`　`node`　　　 `test`  
@@ -42,8 +43,8 @@ action_tutorials_cpp
 `security` 　 `doctor`　　　　　　`multicast`　`service`  
 进一步阅读：
 
-- <https://github.com/ros2/ros2cli>
-- <https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf>
+- [https://github.com/ros2/ros2cli](https://github.com/ros2/ros2cli)
+- [https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf](https://github.com/ubuntu-robotics/ros2_cheats_sheet/blob/master/cli/cli_cheats_sheet.pdf)
 
 </details>
 
@@ -149,7 +150,8 @@ string data
 
 该信息格式只有一个字段，名为 `data`，属于 `String` 字符串类型。  
 
-<details> <summary><b>深入探讨：interfaces 接口</b></summary>
+<details>
+<summary><b>深入探讨：interfaces 接口</b></summary>
 
 消息由字段组成。每个字段都有不同的类型，可以是基本类型（bool、string、float64），也可以是消息类型。通过这种方式，通常可以从较简单的消息创建更复杂的消息。加盖邮戳的消息就是一个例子。  
 一系列名称以 `Stamped` 结尾的消息会在已有消息的基础上添加消息头。查看这两条消息的区别：  
@@ -157,7 +159,7 @@ string data
 `geometry_msgs/msg/PointStamped`  
 进一步阅读：  
 
-- <https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.htmlCheck>
+- [https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.htmlCheck](https://docs.ros.org/en/foxy/Concepts/About-ROS-Interfaces.htmlCheck)
 
 </details>
 
@@ -458,7 +460,8 @@ colcon build --symlink-install --packages-select br2_basics
 
 &emsp;&emsp;从现在起，`cd` 命令将被省略。由此可见，工作空间的所有编译都必须从根目录开始。  
 
-<details> <summary><b>深入探讨：日志 logging</b></summary>
+<details>
+<summary><b>深入探讨：日志 logging</b></summary>
 
 ROS2 有一个日志系统，可以生成严重级别依次递增的日志信息： `DEBUG`、`INFO`、`WARN`、`ERROR` 或 `FATAL`。为此，可使用宏 `RCLCPP_[级别]` 或 `RCLCPP_[级别]_STREAM` 来使用文本流。  
 默认情况下，除了发送到 `/rosout 之外`，`INFO` 或更高级别的严重性级别将显示在标准输出上。您可以对日志记录器进行配置，以确定在标准输出中显示的另一个最低严重性级别：
@@ -470,8 +473,8 @@ ros2 run br2_basics_logger --ros-args --log-level debug
 当应用程序中有许多节点时，建议使用 `rqt_console` 等工具来选择节点和严重性。  
 进一步阅读：  
 
-- <https://docs.ros.org/en/foxy/Tutorials/Logging-and-logger-configuration.html>  
-- <https://docs.ros.org/en/foxy/Concepts/About-Logging.html>  
+- [https://docs.ros.org/en/foxy/Tutorials/Logging-and-logger-configuration.html](https://docs.ros.org/en/foxy/Tutorials/Logging-and-logger-configuration.html)  
+- [https://docs.ros.org/en/foxy/Concepts/About-Logging.html](https://docs.ros.org/en/foxy/Concepts/About-Logging.html)  
 
 </details>
 
@@ -599,7 +602,8 @@ private:
 - 创建一个发布者，即负责创建话题（如果不存在）和发布消息的对象。通过该对象可以获取更多信息，例如话题上有多少订阅者。我们使用 `create_publisher`，这是 `rclcpp::Node` 的一个公共方法，它返回一个 `rclcpp::Publisher` 对象的 `shared_ptr`。参数包括话题名称和一个 `rclcpp::QoS` 对象。该类有一个构造函数，可以接收一个整数，即该话题的输出消息队列的大小，这样我们就可以直接输入这个大小，C++ 编译器就会发挥它的魔力，稍后我们将看到，在这里我们可以选择不同的 QoS。
 - 我们创建了一个 `std_msgs::msg::Int32` 消息，可以确认它只有一个数据字段。每隔 500 毫秒，我们会在定时器回调中递增消息字段，并调用发布者的 `publish` 方法来发布消息。
 
-<details> <summary><b>深入探讨： ROS2 中的 QoS</b></summary>
+<details>
+<summary><b>深入探讨： ROS2 中的 QoS</b></summary>
 
 ROS2 中的 QoS 是 ROS2 必不可少的宝贵功能，也是一个故障点（SPOF），因此必须对其有充分的了解。在本表底部的参考资料中，您可以看到可以建立哪些 QoS 策略及其含义。下面以 C++ 为例说明如何设置 QoS 策略：  
 
@@ -696,9 +700,9 @@ publisher_ = create_publisher<sensor_msgs::msg::LaserScan>(
 用户可以使用相同的服务质量，也可以删除可靠的部分。  
 进一步阅读：
 
-- <https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html>
-- <https://design.ros2.org/articles/qos.html>
-- <https://discourse.ros.org/t/about-qos-of-images/18744/16>
+- [https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html](https://docs.ros.org/en/foxy/Concepts/About-Quality-of-Service-Settings.html)
+- [https://design.ros2.org/articles/qos.html](https://design.ros2.org/articles/qos.html)
+- [https://discourse.ros.org/t/about-qos-of-images/18744/16](https://discourse.ros.org/t/about-qos-of-images/18744/16)
 
 </details>
 
