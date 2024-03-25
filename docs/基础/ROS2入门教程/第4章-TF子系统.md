@@ -132,7 +132,7 @@ odom2obstacle = tfBuffer_.lookupTransform("odom", "detected_obstacle", tf2::Time
 &emsp;&emsp;我们在两个版本中使用相同的软件包。软件包结构见下框：
 
 ```txt
-<-- Package br2_tf2_detector -->
+<-- Package br2 vff avoidance -->
 
 br2_tf2_detector
 ├─CMakeLists.txt
