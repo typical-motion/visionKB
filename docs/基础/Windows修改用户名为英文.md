@@ -32,6 +32,6 @@ net user administrator /active:yes
 
 ```bat
 net user administrator /active:no
-```I
+```
 
 如果杀毒软件提示恶意修改，请放行。这会关闭Administator账户。
